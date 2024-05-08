@@ -36,7 +36,24 @@ var webstore = new Vue({
         }
       }
     },
-    
+    placeOrder() {
+      if (this.validateUserName && this.validateUserPhone) {
+        swal("Success!", "Order submitted successfully!", "success");
+        this.firstName = "";
+        this.lastName = "";
+        this.phoneNumber = "";
+        this.subjects = this.subjects.map((subject) => ({
+          ...subject,
+          availableInventory:
+            subject.availableInventory -
+            this.cart.filter((s) => s.id === subject.id).length,
+        }));
+        this.cart = [];
+        this.showCheckout();
+      } else {
+        swal("Error!", "Fill all details!", "error");
+      }
+    },
 
     cartCount(id) {
       let count = 0;
