@@ -65,10 +65,10 @@ let mySub =[
       }, 
       {
         "id": 1008,
-        "title": "Foreign Language",
+        "title": "Arabic",
         "location":"New York",
         "price": 95,
-        "image": "images/eng.jpg",
+        "image": "images/arabic.jpeg",
         "availableInventory": 13
        
       }, 
