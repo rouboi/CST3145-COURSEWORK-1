@@ -66,6 +66,15 @@ var webstore = new Vue({
     },
   },
   computed: {
+    filteredSubjects() {
+      const query = this.searchInput.toLowerCase();
+      return this.subjects.filter(
+        (lesson) =>
+          lesson.title.toLowerCase().includes(query) ||
+          lesson.location.toLowerCase().includes(query)
+      );
+    },
+
     
 
     cartItemCount: function () {
