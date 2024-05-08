@@ -2,7 +2,7 @@ var webstore = new Vue({
   el: "#open",
   data: {
     showProduct: true,
-    lowHigh: "asc",
+    sortOrder: "asc",
     subjects: mySub,
     cart: [],
     searchInput: "",
@@ -77,7 +77,7 @@ var webstore = new Vue({
 
     sortedSubjects() {
       const attribute = this.sortBy;
-      const order = this.lowHigh == "desc" ? -1 : 1;
+      const order = this.sortOrder == "desc" ? -1 : 1;
 
       function compare(a, b) {
         if (a[attribute] < b[attribute]) return -1 * order;
