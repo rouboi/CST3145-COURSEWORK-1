@@ -75,7 +75,17 @@ var webstore = new Vue({
       );
     },
 
-    
+    sortedSubjects() {
+      const attribute = this.sortBy;
+      const order = this.lowHigh == "desc" ? -1 : 1;
+
+      function compare(a, b) {
+        if (a[attribute] < b[attribute]) return -1 * order;
+        if (a[attribute] > b[attribute]) return 1 * order;
+        return 0;
+      }
+      return this.filteredSubjects.sort(compare);
+    },
 
     cartItemCount: function () {
       return this.cart.length;
